@@ -27,7 +27,7 @@ def cu_read():
 def em_read():
     result = em_view_all_data()
     # st.write(result)
-    df = pd.DataFrame(result, columns = ['E_ID', 'First_Name','Last_Name','MGR_ID','GENDER','SALARY','DOB','ADDRESS','Phone_NO'])
+    df = pd.DataFrame(result, columns = ['E_ID','MGR_ID', 'First_Name','Last_Name','GENDER','SALARY','DOB','ADDRESS','Phone_NO'])
     with st.expander("View all Employees"):
         st.dataframe(df)
     with st.expander("First_Name"):

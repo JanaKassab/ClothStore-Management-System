@@ -3,3 +3,18 @@ enableCORS = false
 port = 8501
 headless = true
 maxMemory = 2048
+
+
+[theme]
+primaryColor = "#6C5CE7"
+backgroundColor = "#F8F9FA"
+secondaryColor = "#8A2BE2"  # BlueViolet (Deep Purple)
+secondaryBackgroundColor = "#EAF2F8"
+textColor = "#2C3E50"
+
+
+
+
+
+
+

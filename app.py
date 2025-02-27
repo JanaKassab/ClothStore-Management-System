@@ -1,4 +1,4 @@
-# Importing pakages
+# Importing packages
 import streamlit as st
 import mysql.connector
 
@@ -8,6 +8,10 @@ from delete import *
 from read import *
 from update import *
 
+
+
+
+
 def main():
     st.set_page_config(
     page_title = "My Cloth Store",
@@ -15,32 +19,36 @@ def main():
     layout = "wide",
     initial_sidebar_state = "expanded",
     )
+    
     #st.snow()
     st.sidebar.image("Fashion.png")
-    st.title("My Cloth Store - JK")
+    st.title("Cloth Store Management System ")
+    # Main Sections with improved UI layout
+    st.write("🛍️ **Manage Your Store Efficiently**")
+    st.divider()  # Adds a clean separation line
     #st.write("------------------------------------------------------")
     menu = ["ADD", "VIEW", "EDIT", "REMOVE"]
-    st.sidebar.header("MENU")
+    st.sidebar.header("🔹 MENU")
     
-    ch = st.sidebar.selectbox("OPTIONS",["CUSTOMER","EMPLOYEE","ITEMS-STOCK","SUPPLIER"])
-    option = st.sidebar.selectbox("ACTION", menu)
+    ch = st.sidebar.radio("📌 Select Category", ["CUSTOMER", "EMPLOYEE", "ITEMS-STOCK", "SUPPLIER"])
+    option = st.sidebar.radio("⚡ Action", menu)
     ch2 = st.sidebar.selectbox("RUN ANY QUERY",["Click here/Scroll Down \u2193"])
     if ch == "CUSTOMER":
         cu_create_table()
         if option == "ADD":
-            st.subheader("Enter CUSTOMER Details :")
+            st.subheader("📝 Add New Customer")
             cu_create()
 
         elif option == "VIEW":
-            st.subheader("View added CUSTOMER :")
+            st.subheader("👀 View Customers")
             cu_read()
 
         elif option == "EDIT":
-            st.subheader("Update CUSTOMER Details :")
+            st.subheader("✏️ Edit Customer Details")
             cu_update()
 
         elif option == "REMOVE":
-            st.subheader("Delete CUSTOMER Details :")
+            st.subheader("❌ Remove Customer")
             cu_delete()
 
         else:
@@ -51,19 +59,19 @@ def main():
     if ch == "EMPLOYEE":
         em_create_table()
         if option == "ADD":
-            st.subheader("Enter EMPLOYEE Details :")
+            st.subheader("📝 Add Employee")
             em_create()
 
         elif option == "VIEW":
-            st.subheader("View added EMPLOYEE :")
+            st.subheader("👀 View Employees")
             em_read()
 
         elif option == "EDIT":
-            st.subheader("Update EMPLOYEE Details :")
+            st.subheader("✏️ Edit Employee")
             em_update()
 
         elif option == "REMOVE":
-            st.subheader("Delete EMPLOYEE Details :")
+            st.subheader("❌ Remove Employee")
             em_delete()
 
         else:
@@ -74,19 +82,19 @@ def main():
     if ch == "ITEMS-STOCK":
         it_create_table()
         if option == "ADD":
-            st.subheader("Enter ITEM Details :")
+            st.subheader("📦 Add Items to Stock")
             it_create()
 
         elif option == "VIEW":
-            st.subheader("View added ITEMS :")
+            st.subheader("🔍 View Inventory")
             it_read()
 
         elif option == "EDIT":
-            st.subheader("Update ITEM Details :")
+            st.subheader("✏️ Update Stock Items")
             it_update()
 
         elif option == "REMOVE":
-            st.subheader("Delete ITEM Details :")
+            st.subheader("🗑️ Delete Items")
             it_delete()
 
         else:
@@ -97,19 +105,19 @@ def main():
     if ch == "SUPPLIER":
         su_create_table()
         if option == "ADD":
-            st.subheader("Enter SUPPLIER AND SHIPPING Details :")
+            st.subheader("📜 Add Supplier Details")
             su_create()
 
         elif option == "VIEW":
-            st.subheader("View added SUPPLIER :")
+            st.subheader("🔍 View Suppliers")
             su_read()
 
         elif option == "EDIT":
-            st.subheader("Update SUPPLIER AND SHIPPING Details :")
+            st.subheader("✏️ Edit Supplier Information")
             su_update()
 
         elif option == "REMOVE":
-            st.subheader("Delete SUPPLIER Details :")
+            st.subheader("🗑️ Remove Supplier")
             su_delete()
 
         else:
@@ -126,7 +134,7 @@ def main():
         return result
     def any_query():
         st.subheader("RUN ANY QUERY")
-        query = st.text_area("Enter your query here",value = "SELECT * FROM store")
+        query = st.text_area("🔹 Enter your query here",value = "SELECT * FROM store")
         if st.button("Run Query"):
             result = any_query_data(query)
             df = pd.DataFrame(result)

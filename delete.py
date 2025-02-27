@@ -21,7 +21,7 @@ def cu_delete():
         st.dataframe(df2)
     
     result2 = cu_read_delete()
-    df = pd.DataFrame(result2, columns = ['C_ID','E_ID','First_Name','Last Name','Qualification','Address','Locality','City','Email','Phone_NO','DOP','Store_ID','Item_ID','Quantity','O_Amount'])
+    df = pd.DataFrame(result2, columns = ['C_ID','E_ID','First_Name','Last Name','Qualification','Address','Locality','City','Email','Phone_NO','DOP','Store_ID','Item_ID','Quantity','O_Amount','Price'])
     with st.expander("History of Deleted Customers"):
         st.dataframe(df)
 
