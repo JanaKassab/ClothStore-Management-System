@@ -2,6 +2,7 @@
 enableCORS = false
 port = 8502
 headless = true
+enableXsrfProtection = false
 maxMemory = 2048
 
 
